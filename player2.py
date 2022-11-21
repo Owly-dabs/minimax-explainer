@@ -41,7 +41,7 @@ class GeniusComputerPlayer(Player):
     def __init__(self,letter):
         super().__init__(letter)
 
-    def minimax(self, state, player):
+    def minimax(self, state, player,alpha=-math.inf,beta=math.inf):
         # Define max player and other player
         max_player = self.letter
         other_player = 'O' if player == 'X' else 'X'
@@ -67,16 +67,23 @@ class GeniusComputerPlayer(Player):
                 'position': None,
                 'score': math.inf
             }
+        # Set Alpha Beta pruning conditions
+        
 
         # make move
         for possible_move in state.available_moves():
+            # 0. Alpha-beta prune
+            if alpha>=beta: 
+                print("PRUNED")
+                continue
             # 1. Make Move
             state.make_move(possible_move, player)
             # 2. Recurse with minimax (go on to next move and switch player)
+            ### Debugging testing
             print("Simulated Board")
             state.print_board()
-            time.sleep(0.01)
-            sim_score = self.minimax(state,other_player)
+            time.sleep(0.001)
+            sim_score = self.minimax(state,other_player,alpha,beta)
             # 3. Undo Move, undo current winner and set the state in dictionary
             state.undo_move(possible_move,player)
             state.current_winner = None
@@ -85,9 +92,11 @@ class GeniusComputerPlayer(Player):
             if player == max_player:
                 if sim_score['score']>best['score']:
                     best = sim_score
+                alpha = max(alpha,sim_score['score'])
             else:
                 if sim_score['score']<best['score']:
                     best = sim_score
+                beta = min(beta,sim_score['score'])
 
         # return score
         return best
