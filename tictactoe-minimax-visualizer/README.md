@@ -1,14 +1,13 @@
 # Minimax visualizer
-A Minimax score visualization tool on the game of TicTacToe
+A Minimax score visualization tool on the game of TicTacToe.
 
 ## Problem Statement
-**Context**: This version of the TicTacToe game is aimed to be a visualisation aid that illustrates how the minimax algorithm works. Algorithms are not as intuitive or easy to grasp especially for people newer to such processes. Many are taught about decision trees but unsure how this helps lead an AI to play the best possible move each time. Hence, this programme calculates the score for all subsequent moves and shows the scores accordingly. The user can then observe how a minimax algorithm scores the possible moves and make the next best possible move.
+**Context**: This version of the TicTacToe game is aimed to be a visualisation aid that illustrates how the minimax algorithm works. Algorithms are not as intuitive or easy to grasp especially for people newer to such concepts. Many are taught about decision trees but unsure how this helps lead an AI to play the best possible move each time. Hence, this programme calculates the score for all subsequent moves and shows the minimax scores accordingly. 
 
-**Description of the game:** In this version of TicTacToe, players take turns clicking the spaces in a three-by-three grid with 'X' or 'O'. As every move is made, a score is calculated by the Minimax Algorithm to visually show what is the best possible move the player can make next to win the game.
+**Description of the game:** The user will input moves into the CLI interface and observe the scores of the next possible moves in the tkinter window. Repeat until one of the players win. The user is encouraged to try different combinations of moves to observe how the state of the board plays out. 
 
 ## Running Locally
-### TicTacToe
-1. Clone this repo into a local directory and navigate to the directory.
+1. Clone this repo into a local directory and navigate to ./tictactoe-minimax-visualizer.
 2. Run in terminal.
     ```
     python game.py
