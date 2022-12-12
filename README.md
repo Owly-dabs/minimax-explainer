@@ -11,7 +11,7 @@ An intuitive minimax decision tree visualization tool on the games of TicTacToe 
 
 ## Running Locally
 ### TicTacToe Visualizer
-1. Clone this repo into a local directory and navigate to ./tictactoe-minimax-visualizer.
+1. Clone this repo into a local directory and navigate to `./tictactoe-minimax-visualizer`.
 2. Run in terminal.
     ```
     python game.py
