@@ -60,26 +60,26 @@ The display module generates UI elements displayed on the GUI using the ttk widg
 The 2 main elements in the UI are the current position of the tic tac toe game which displays of the left and the list of possible future states on the right.
 
 #### **Functions**
-All functions except `funcClearContainer` and `funcFirstDiffIndex` take as inputs a `root`, the ttk container that the frame is to be generated in and a `style` dictionary defining the appearance of the ttk widgets in addition to the others detailed below.
+All functions except `clear_container` and `first_diff_index` take as inputs a `root`, the ttk container that the frame is to be generated in and a `style` dictionary defining the appearance of the ttk widgets in addition to the others detailed below.
 
-- `funcFirstDiffIndex` takes in 2 lists of equal length and returns the index of the first item between both lists that differ. It is used exclusively by `funcGenBoard` to identify where the next position is.
+- `first_diff_index` takes in 2 lists of equal length and returns the index of the first item between both lists that differ. It is used exclusively by `display_board` to identify where the next position is.
 
-- `funcGenBoard` generates a tic tac toe board as a ttk frame and attaches the move     number of the next position and the associated minimax score of the position. As input, the function takes in
+- `display_board` generates a tic tac toe board as a ttk frame and attaches the move     number of the next position and the associated minimax score of the position. As input, the function takes in
   - a dictionary containing the `'position'` and `'score'` of the position
   - a list of the current game position
   - The function returns the `ttk` frame which can then be assgined to a grid position using `.grid()` or `.pack()`.
 
-- `funcBoardFrames` generates a ttk frame containing all possible next moves of the tic tac toe game. Individual boards are generated using funcGenBoard. The boards are dynamically arranged in columns of 4. As input, the function takes in
-  - a list containing the possible future positions as dictionaries, used by funcGenBoard
-  - a list of the current game position, used by `funcGenBoard`
-  - The function returns the `ttk` frame which can be arranged the same way as `funcGenBoard`.
+- `display_frames` generates a ttk frame containing all possible next moves of the tic tac toe game. Individual boards are generated using display_board. The boards are dynamically arranged in columns of 4. As input, the function takes in
+  - a list containing the possible future positions as dictionaries, used by display_board
+  - a list of the current game position, used by `display_board`
+  - The function returns the `ttk` frame which can be arranged the same way as `display_board`.
 
-- `funcMainBoard` generates a tic tac toe board as a ttk frame similar to `funcGenBoard`. This board represents the current position of the game. As input, the function takes in
+- `main_board` generates a tic tac toe board as a ttk frame similar to `display_board`. This board represents the current position of the game. As input, the function takes in
   - a list containing the position of the game
-  - The function returns the `ttk` frame which can be arranged the same way as `funcGenBoard`.
+  - The function returns the `ttk` frame which can be arranged the same way as `display_board`.
 
-- `funcVictoryLabel` generates a `ttk.Label` when the game reaches an end state. As input, the function takes in
+- `victory_label` generates a `ttk.Label` when the game reaches an end state. As input, the function takes in
   - a string containing either the final draw state or victor's game marker
   - The function returns the `ttk.Label` which can be assigned to a grid position.
 
-- `funcClearContainer` destroys all items in a ttk container such as a window or frame. This function only takes in the container as input does not return anything.
+- `clear_container` destroys all items in a ttk container such as a window or frame. This function only takes in the container as input does not return anything.

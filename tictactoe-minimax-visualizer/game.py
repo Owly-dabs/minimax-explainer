@@ -83,10 +83,10 @@ def play(game,x_player,o_player,print_game=True):
     while game.empty_squares():
         # Get the move from the correct player
         if letter == 'O':
-            funcMainBoard(tkWindow,style,game.board,o_player).grid(row = 0, column = 0)
+            main_board(tkWindow,style,game.board,o_player).grid(row = 0, column = 0)
             square = o_player.get_move(game)
         else:
-            funcMainBoard(tkWindow,style,game.board,x_player).grid(row = 0, column = 0)
+            main_board(tkWindow,style,game.board,x_player).grid(row = 0, column = 0)
             square = x_player.get_move(game)
         
         # function to make a move
@@ -100,8 +100,8 @@ def play(game,x_player,o_player,print_game=True):
         if game.current_winner:
             if print_game:
                 print(letter + ' wins!')
-                funcMainBoard(tkWindow,style,game.board,x_player).grid(row = 0, column = 0)
-                funcVictoryLabel(tkWindow,style,letter).grid(row = 1, column = 0)
+                main_board(tkWindow,style,game.board,x_player).grid(row = 0, column = 0)
+                victory_label(tkWindow,style,letter).grid(row = 1, column = 0)
                 tkWindow.update_idletasks()
             return letter
         
@@ -120,8 +120,8 @@ def play(game,x_player,o_player,print_game=True):
                 temp[state['position']] = 'O'
                 state['position'] = temp
         
-        funcClearContainer(tkWindow)
-        funcBoardFrames(tkWindow,style,state_list,game.board).grid(row = 0, column = 1, columnspan = 2)
+        clear_container(tkWindow)
+        display_frames(tkWindow,style,state_list,game.board).grid(row = 0, column = 1, columnspan = 2)
         tkWindow.update_idletasks()
 
         # alternate player
@@ -158,8 +158,8 @@ if __name__ == '__main__':
     x_player = HumanPlayer('X')
     o_player = HumanPlayer('O')
     t=TicTacToe()
-    funcBoardFrames(tkWindow,style,a,t.board).grid(row = 0, column = 1)
-    funcMainBoard(tkWindow,style,a[0]['position'],x_player).grid(row = 0, column = 0, columnspan = 1)
+    display_frames(tkWindow,style,a,t.board).grid(row = 0, column = 1)
+    main_board(tkWindow,style,a[0]['position'],x_player).grid(row = 0, column = 0, columnspan = 1)
     play(t, x_player,o_player,print_game=True)
 
     tkWindow.mainloop()
